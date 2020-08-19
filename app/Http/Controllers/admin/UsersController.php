@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -37,11 +38,19 @@ class UsersController extends Controller
         $vali = $request->validate([
             'name' => 'required|min:3',
             'email' => 'required|email|unique:App\User',
+            'bio' => 'required|max:255',
+            'image' => 'required|image',
+            'points' => 'required|integer',
+            'section' => 'required|min:3',
         ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'bio' => $request->bio,
+            'points' => $request->points,
+            'section' => $request->section,
             'password' => Hash::make($request->password),
+            'image' => $request->image->store('images','public'),
         ]);
         $role = Role::select('id')->where('name', 'user')->first();
         $user->roles()->attach($role);
@@ -78,6 +87,7 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
+        Storage::disk('public')->delete($user->image);
         $user->roles()->detach();
         $user->delete();
         toast('this user was deleted !', 'warning');
