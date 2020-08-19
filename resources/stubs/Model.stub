@@ -1,0 +1,17 @@
+<?php
+
+namespace App;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\Model;
+
+class {{modelName}} extends Model
+{
+    use LogsActivity;
+    protected static $logAttributes = ['name'];
+    protected static $logName = '{{modelName}}';
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return ":subject.name {{modelName}} has been {$eventName} by :causer.name";
+    }
+    protected $guarded = [''];
+}

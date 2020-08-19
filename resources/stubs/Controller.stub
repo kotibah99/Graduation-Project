@@ -1,0 +1,67 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\{{modelName}};
+use Gate;
+
+class {{modelName}}Controller extends Controller
+{
+    public function index()
+    {
+        ${{modelNamePluralLowerCase}} = {{modelName}}::orderBy('id')->paginate(6);
+        return view('{{modelNamePluralLowerCase}}.index', compact('{{modelNamePluralLowerCase}}'));
+    }
+
+    public function store(Request $request)
+    {
+        $validate = $request->validate([
+            'name' => 'required|min:3',
+            'description' => 'required',
+        ]);
+
+        ${{modelNameSingularLowerCase}} = {{modelName}}::create([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+        toast('Your {{modelName}} was Added successfully !', 'success');
+        return redirect(route('{{modelNamePluralLowerCase}}.index'));
+    }
+
+    public function create()
+    {
+        return view('{{modelNamePluralLowerCase}}.create');
+    }
+
+    public function show({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        return view('{{modelNamePluralLowerCase}}.show', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+    public function edit({{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        return view('{{modelNamePluralLowerCase}}.edit', compact('{{modelNameSingularLowerCase}}'));
+    }
+
+
+    public function update(Request $request, {{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        $vali = $request->validate([
+            'name' => 'required|min:3',
+        ]);
+
+        $data = $request->only(['name']);
+        ${{modelNameSingularLowerCase}}->update($data);
+        toast('Your {{modelNameSingularLowerCase}} was Updated successfully !', 'success');
+        return redirect(route('{{modelNamePluralLowerCase}}.index'));
+    }
+
+    public function destroy( {{modelName}} ${{modelNameSingularLowerCase}})
+    {
+        ${{modelNameSingularLowerCase}}->delete();
+        toast('Your {{modelNameSingularLowerCase}} was Deleted !', 'warning');
+        return redirect(route('{{modelNamePluralLowerCase}}.index'));
+    }
+}
