@@ -62,13 +62,17 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
-
-        if (!(Auth::user()->id === $user->id)) {
-            alert()->error('error', 'you can not edit users becuase you are not admin');
-            return redirect(route("users.index"));
+        if (Gate::allows('edit')) {
+            $roles = Role::all();
+            return view('users.edit', compact('user', 'roles'));
+        } else {
+            if (!(Auth::user()->id === $user->id)) {
+                alert()->error('error', 'you can not edit users becuase you are not admin');
+                return redirect(route("users.index"));
+            }
+            $roles = Role::all();
+            return view('users.edit', compact('user', 'roles'));
         }
-        $roles = Role::all();
-        return view('users.edit', compact('user', 'roles'));
     }
 
     /**
