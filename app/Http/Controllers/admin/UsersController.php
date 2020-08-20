@@ -7,6 +7,7 @@ use App\Role;
 use App\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -50,7 +51,7 @@ class UsersController extends Controller
             'points' => $request->points,
             'section' => $request->section,
             'password' => Hash::make($request->password),
-            'image' => $request->image->store('images','public'),
+            'image' => $request->image->store('images', 'public'),
         ]);
         $role = Role::select('id')->where('name', 'user')->first();
         $user->roles()->attach($role);
@@ -61,6 +62,11 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+
+        if (!(Auth::user()->id === $user->id)) {
+            alert()->error('error', 'you can not edit users becuase you are not admin');
+            return redirect(route("users.index"));
+        }
         $roles = Role::all();
         return view('users.edit', compact('user', 'roles'));
     }
@@ -81,7 +87,7 @@ class UsersController extends Controller
             'points' => 'required|integer',
             'section' => 'required|min:3',
         ]);
-        $data=$request->except(['image','roles']);
+        $data = $request->except(['image', 'roles']);
         if ($request->hasFile('image')) {
             $image = $request->image->store('images', 'public');
             Storage::disk('public')->delete($user->image);
