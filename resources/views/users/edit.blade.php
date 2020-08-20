@@ -68,22 +68,24 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control " name="password" value=" {{$user->password}} " autocomplete="new-password">
+                                <input id="password" type="password" class="form-control " name="password"  autocomplete="new-password">
+                                <div> {{$errors->first('password')}} </div>
                             </div>
                         </div>
 
-                        <div class="form-group my-3 row">
-                            @foreach ($roles as $role)
-                            <div class="form-check">
-                                <input type="checkbox" name="roles[]" value="{{$role->id}}"
-                                    @if($user->roles->pluck('id')->contains($role->id))
-                                checked
-                                @endif
-                                >
-                                <label> {{$role->name}} </label>
+                        @can('edit')
+                            <div class="form-group my-3 row">
+                                @foreach ($roles as $role)
+                                <div class="form-check">
+                                    <input type="checkbox" name="roles[]" value="{{$role->id}}" @if($user->roles->pluck('id')->contains($role->id))
+                                    checked
+                                    @endif
+                                    >
+                                    <label> {{$role->name}} </label>
+                                </div>
+                                @endforeach
                             </div>
-                            @endforeach
-                        </div>
+                        @endcan
                         <button type="submit" class="btn btn-sm btn-success">Update</button>
                     </form>
                 </div>

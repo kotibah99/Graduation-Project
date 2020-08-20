@@ -41,6 +41,7 @@
                             </form>
                             {{-- <a href="{{route('imperosnate',$user->id)}}" class="btn btn-sm btn-primary
                             float-left">impersonate</a> --}}
+                            <a href=" {{route("users.show",$user)}} " class="btn btn-sm btn-success float-left">Show</a>
                         </td>
                     </tr>
                     @endforeach

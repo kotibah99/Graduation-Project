@@ -28,5 +28,5 @@ Auth::routes([
 
 Route::get('/admin', 'AdminController@index')->middleware('auth');
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('/users', 'admin\UsersController', ['except'=>['show']]);
+    Route::resource('/users', 'admin\UsersController');
 });

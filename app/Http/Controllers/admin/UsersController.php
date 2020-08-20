@@ -90,17 +90,26 @@ class UsersController extends Controller
             'bio' => 'required|max:255',
             'points' => 'required|integer',
             'section' => 'required|min:3',
+            'password' => 'required|min:5'
         ]);
-        $data = $request->except(['image', 'roles']);
+        $data = $request->except(['image', 'roles','password']);
+        $pass = Hash::make($request->password) ;
+        $data['password']=$pass;
         if ($request->hasFile('image')) {
             $image = $request->image->store('images', 'public');
             Storage::disk('public')->delete($user->image);
             $data['image'] = $image;
         }
-        $user->roles()->sync($request->roles);
+        if ($request->roles) {
+            $user->roles()->sync($request->roles);
+        }
         $user->update($data);
         toast('this user was Updated successfully', 'info');
-        return redirect()->route('users.index');
+        return redirect()->route('users.show',$user);
+    }
+    public function show(User $user)
+    {
+        return view('users.show', compact('user'));
     }
 
     /**
