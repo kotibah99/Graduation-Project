@@ -74,7 +74,21 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $vali = $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'bio' => 'required|max:255',
+            'points' => 'required|integer',
+            'section' => 'required|min:3',
+        ]);
+        $data=$request->except(['image','roles']);
+        if ($request->hasFile('image')) {
+            $image = $request->image->store('images', 'public');
+            Storage::disk('public')->delete($user->image);
+            $data['image'] = $image;
+        }
         $user->roles()->sync($request->roles);
+        $user->update($data);
         toast('this user was Updated successfully', 'info');
         return redirect()->route('users.index');
     }
