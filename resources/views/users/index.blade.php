@@ -39,8 +39,8 @@
                                 @method('delete')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
-                            {{-- <a href="{{route('imperosnate',$user->id)}}" class="btn btn-sm btn-primary
-                            float-left">impersonate</a> --}}
+                            <a href="{{route('imperosnate',$user)}}" class="btn btn-sm btn-primary
+                            mx-3">impersonate</a>
                             <a href=" {{route("users.show",$user)}} " class="btn btn-sm btn-success float-left">Show</a>
                         </td>
                     </tr>

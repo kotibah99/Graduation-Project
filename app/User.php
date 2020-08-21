@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Session;
 
 class User extends Authenticatable
 {
@@ -51,5 +52,19 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+    public function setImpersonating($id)
+    {
+        Session::put('impersonate', $id);
+    }
+
+    public function stopImpersonating()
+    {
+        Session::forget('impersonate');
+    }
+
+    public function isImpersonating()
+    {
+        return Session::has('impersonate');
     }
 }

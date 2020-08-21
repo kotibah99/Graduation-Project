@@ -126,4 +126,23 @@ class UsersController extends Controller
         toast('this user was deleted !', 'warning');
         return redirect()->route('users.index');
     }
+    public function impersonate($id)
+    {
+        if (Gate::denies('edit')) {
+            alert()->error('Operation Not Allowed', 'You Don\'t have any premissions to impersonating users  Because you are not ADMIN');
+            return redirect()->route('users.index');
+        }
+        $user = User::find($id);
+        Auth::user()->setImpersonating($user->id);
+        return redirect(route('users.show',$user));
+    }
+
+    public function stopImper()
+    {
+
+        Auth::user()->stopImpersonating();
+        alert()->success('Imperonating Finished', 'You have finished your impersonating session successfully');
+
+        return redirect(route('users.index'));
+    }
 }

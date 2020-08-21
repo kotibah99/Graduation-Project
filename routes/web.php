@@ -29,4 +29,7 @@ Auth::routes([
 Route::get('/admin', 'AdminController@index')->middleware('auth');
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('/users', 'admin\UsersController');
+    Route::get('/users/{id}/impersonate', 'admin\UsersController@impersonate')->name('imperosnate');
+    Route::get('/stopimpersonate', 'admin\UsersController@stopImper')->name('stopImper');
+
 });

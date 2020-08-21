@@ -57,6 +57,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             @csrf
                         </form>
                         <a href=" {{route('users.index')}} " class="dropdown-item">User Managment</a>
+                        @if(Auth::user()->isImpersonating())
+                        <a href="{{route('stopImper')}}" class="dropdown-item">Stop Impersonate</a>
+                        @endif
                     </div>
                 </li>
                 @endguest
