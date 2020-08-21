@@ -70,8 +70,11 @@
             </div>
         </div>
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src=" {{asset('storage/'.$user->image)}} " class="mx-auto img-fluid img-circle d-block w-50"
-                alt="avatar">
+            @if (!($user->image))
+            <img src="/img/user.svg" class="img-circle elevation-2 my-3" alt="User Image">
+            @else
+            <img src=" {{asset('storage/'.Auth::user()->image)}} " class="img-circle elevation-2 w-100" alt="User Image">
+            @endif
         </div>
     </div>
 </div>
