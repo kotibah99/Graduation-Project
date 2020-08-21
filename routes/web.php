@@ -31,5 +31,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('/users', 'admin\UsersController');
     Route::get('/users/{id}/impersonate', 'admin\UsersController@impersonate')->name('imperosnate');
     Route::get('/stopimpersonate', 'admin\UsersController@stopImper')->name('stopImper');
+    Route::get('logs', 'LogController@index')->name('logs.index');
+    Route::get('logs/delete', 'LogController@destroy')->name('logs.delete');
 
 });
