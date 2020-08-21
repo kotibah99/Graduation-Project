@@ -33,15 +33,15 @@
                         <td> {{ implode(',',$user->roles()->get()->pluck('name')->toArray()) }} </td>
                         <td>
                             <a href="{{route('users.edit',$user->id)}}"
-                                class="btn btn-sm btn-warning float-left">Edit</a>
+                                class="btn btn-sm btn-warning float-left"> <i class="fa fa-user-edit"></i></a>
                             <form action=" {{route('users.destroy',$user)}} " method="post" class="float-left mx-3">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-danger"> <i class=" fa fa-user-minus"></i></button>
                             </form>
                             <a href="{{route('imperosnate',$user)}}" class="btn btn-sm btn-primary
-                            mx-3">impersonate</a>
-                            <a href=" {{route("users.show",$user)}} " class="btn btn-sm btn-success float-left">Show</a>
+                            mx-3"> <i class="fa fa-user-ninja"></i> impersonate</a>
+                            <a href=" {{route("users.show",$user)}} " class="btn btn-sm btn-success float-left"><i class="fa fa-eye"></i></a>
                         </td>
                     </tr>
                     @endforeach

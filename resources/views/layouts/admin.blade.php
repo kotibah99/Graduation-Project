@@ -50,15 +50,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                           <i class="fa fa-power-off"></i> {{ __('Logout') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <a href=" {{route('users.index')}} " class="dropdown-item">User Managment</a>
+                        <a href=" {{route('users.index')}} " class="dropdown-item"><i class="fa fa-users-cog"></i> User Managment</a>
                         @if(Auth::user()->isImpersonating())
-                        <a href="{{route('stopImper')}}" class="dropdown-item">Stop Impersonate</a>
+                        <a href="{{route('stopImper')}}" class="dropdown-item"> <i class="fa fa-user-slash"></i> Stop Impersonate</a>
                         @endif
                     </div>
                 </li>
