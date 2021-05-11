@@ -6,17 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Session;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
-    use Notifiable, LogsActivity;
-    protected static $logAttributes = ['name'];
-    protected static $logName = 'Users';
-    public function getDescriptionForEvent(string $eventName): string
-    {
-        return ":subject.name user has been {$eventName} by :causer.name";
-    }
+  
     protected $guarded = [];
 
     /**
