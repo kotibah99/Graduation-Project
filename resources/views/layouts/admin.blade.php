@@ -19,7 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini sidebar-closed sidebar-collapse">
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -68,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-dark-primary  elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="/img/settings.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -76,7 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
 
             <!-- Sidebar -->
-            <div class="sidebar">
+            <div class="sidebar ">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
@@ -106,9 +106,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link active">
+                                    <a href=" {{route('projects.index')}} " class="nav-link active">
                                         <i class="fas fa-circle nav-icon"></i>
-                                        <p>Active Page</p>
+                                        <p>All Projects</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
