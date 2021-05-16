@@ -30,7 +30,7 @@
                         <td>{{$project->num}}</td>
                         <td>{{$project->site}}</td>
                         <td>
-                            <a href="{{route('projects.edit',$project->id)}}"
+                            <a href="{{route('projects.show',$project->id)}}"
                                 class="btn btn-sm btn-warning float-left"> <i class="fa fa-user-edit"></i></a>
                             <form action=" {{route('projects.destroy',$project)}} " method="post" class="float-left mx-3">
                                 @csrf

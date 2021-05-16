@@ -39,7 +39,8 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        return view('projects.show', compact('project'));
+        $primaries = $project->primaries;
+        return view('projects.show', compact('project','primaries'));
     }
 
     public function edit(Project $project)
