@@ -5,41 +5,55 @@
         <div class="card col-12 my-1 p-0">
             <div class="card-header">
                 {{ $primary->name }}
-                <span class="badge p-2 badge-success"> {{ $primary->key }} </span>
+                <span class="badge p-2 badge-secondary"> Primary key {{ $primary->key }} </span>
+                <span class="badge p-2 badge-success"> total percent : {{ $primary->percent }} </span>
                 <span class="badge p-2  badge-primary"> project id : {{ $primary->project_id }} </span>
+                <a class="badge p-2 badge-warning float-right" href="{{ route('projects.show',$primary->project->id) }}" > 
+                    
+                    <i class="fa fa-arrow-circle-left m-1"></i> GO BACK </a>
             </div>
             <div class="card-body">
                 <h2>All secondaries keys</h2>
-               <div class="row">
-                <div class="col-10 justify-content-center">
-                    <div class="row">
-                        {{-- @forelse ($primaries as $primary)
-                        <div class="card col-2  m-1 p-0">
-                            <div class="card-header text-center">
-                                <p>{{ $primary->name }}</p>
-                                <span class="btn btn-sm btn-success"> {{ $primary->key }} </span>
-                            </div>
-                            <div class="card-body text-center"> 
-                                <p>test</p>
-                                <a class="btn btn-sm btn-success"> add </a>
-                             </div>
+                <div class="row">
+                    <div class="col-10 justify-content-center">
+                        <div class="row">
+                            @forelse ($secondaries as $secondary)
+                                <div class="card col-2  m-1 p-0">
+                                    <div class="card-header text-center">
+                                        <p>{{ $secondary->name }}</p>
+                                        <span class="btn btn-sm btn-success"> {{ $secondary->percent }} </span>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <form class="my-1" action="{{route("secondaries.update",$secondary)}}" method="post">
+                                            @csrf
+                                            @method('patch')
+                                            <select class="form-control" name="percent" id="">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-success my-3">Add</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            @empty
+                                <div class="col-10">
+                                    there is no data
+                                </div>
+                                <div class="col-2">
+                                    <a href="{{route('seconda',$primary->id)}}" class="btn btn-primary"> start it </a>
+                                </div>
+                            @endforelse
                         </div>
-                        @empty
-                        there is no data 
-                        @endforelse --}}
                     </div>
                 </div>
-                <div class="col-2">
-                    <form class="text-center" action=" {{route("primaries.store")}} " method="post">
-                        @csrf
-                        <label>Add secondary key</label>
-                        <input type="hidden" value=" {{$primary->id}} " name="item_id" >
-                        <input type="text" class="form-control my-1" name="name" placeholder=" primary key name" id="">
-                        <input type="number" step="0.0000001" class="form-control my-1" name="key" placeholder=" your key here" id="">
-                        <button type="submit" class="form-control btn btn-primary">ADD<i class="fas fa-plus mx-2"></i></button>
-                    </form>
-                </div>
-               </div>
             </div>
         </div>
     </div>

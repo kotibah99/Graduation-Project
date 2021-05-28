@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrimariesTable extends Migration
+class CreateSecondariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePrimariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('primaries', function (Blueprint $table) {
+        Schema::create('secondaries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->decimal('key', 12, 5)->nullable();
             $table->decimal('percent',12,5)->nullable();
-            $table->unsignedInteger('project_id');
+            $table->unsignedInteger('primary_id');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePrimariesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('primaries');
+        Schema::dropIfExists('secondaries');
     }
 }

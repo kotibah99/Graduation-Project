@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Primary;
+use App\Secondary;
 use Gate;
 
 class PrimaryController extends Controller
@@ -13,6 +14,33 @@ class PrimaryController extends Controller
     {
         $primaries = Primary::orderBy('id')->paginate(12);
         return view('primaries.index', compact('primaries'));
+    }
+
+    public function seconda(Primary $primary){
+        $seconda = Secondary::where('id',$primary->id)->insert([
+            ['name' => 'دور وزارة النفط في تأمين الوقود بشكل ودون انقطاع وبكافة الظروف ',
+            'key' => 0.01558 ,
+            'primary_id' => $primary->id],
+            ['name' => 'دور وزارة المالية في تأمين الضمانات والإعفاءات اللازمة ',
+            'key' => 0.012616 ,
+            'primary_id' => $primary->id],
+            ['name' => 'دور وزارة النفط في تأمين الوقود بشكل ودون انقطاع وبكافة الظروف',
+            'key' => 0.00798 ,
+            'primary_id' => $primary->id],
+            ['name' => 'دور وزارة النفط في تأمين الوقود بشكل ودون انقطاع وبكافة الظروف',
+            'key' => 0.012312 ,
+            'primary_id' => $primary->id],
+            ['name' => 'دور وزارة النفط في تأمين الوقود بشكل ودون انقطاع وبكافة الظروف',
+            'key' => 0.008284 ,
+            'primary_id' => $primary->id],
+            ['name' => 'دور وزارة النفط في تأمين الوقود بشكل ودون انقطاع وبكافة الظروف',
+            'key' => 0.006916 ,
+            'primary_id' => $primary->id],
+            ['name' => 'دور وزارة النفط في تأمين الوقود بشكل ودون انقطاع وبكافة الظروف',
+            'key' => 0.162 ,
+            'primary_id' => $primary->id]
+        ]);
+        return redirect(route('primaries.show',$primary));
     }
 
     public function store(Request $request)
@@ -39,7 +67,8 @@ class PrimaryController extends Controller
 
     public function show(Primary $primary)
     {
-        return view('primaries.show', compact('primary'));
+        $secondaries = $primary->secondaries;
+        return view('primaries.show', compact('primary','secondaries'));
     }
 
     // public function edit(Primary $primary)

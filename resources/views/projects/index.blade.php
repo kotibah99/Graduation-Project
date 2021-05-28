@@ -42,6 +42,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="row justify-content-center">
+                {{ $projects->links() }}
+            </div>
         </div>
     </div>
 </div>

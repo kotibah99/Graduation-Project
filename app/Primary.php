@@ -11,8 +11,12 @@ class Primary extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function project(): BelongsTo
+    public function project()
     {
         return $this->belongsTo(Project::class);
-    }   
+    }
+    public function secondaries()
+    {
+        return $this->hasMany(Secondary::class);
+    }
 }

@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Project;
+use App\Primary;
 use Gate;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderBy('id')->paginate(6);
+        $projects = Project::orderBy('id')->paginate(7);
         return view('projects.index', compact('projects'));
     }
 
@@ -23,11 +24,35 @@ class ProjectController extends Controller
             'site' => 'required',
         ]);
 
-        $project = Project::create([
+        $proj = Project::create([
             'name' => $request->name,
             'num' => $request->num,
             'site' => $request->site,
         ]);
+        $project = Project::orderBy('id', 'DESC')->first();
+        $prime = Primary::where('id',$project->id)->insert([
+            ['name' => 'الجهات المعنية بالمشروع',
+            'key' => 0.076 ,
+            'project_id' => $project->id],
+            ['name' => 'وثائق المشروع ',
+            'key' => 0.210 ,
+            'project_id' => $project->id],
+            ['name' => 'الموقع الجغرافي ',
+            'key' => 0.112 ,
+            'project_id' => $project->id],
+            ['name' => 'العوامل البيئية والمجتمعية للمشروع ',
+            'key' => 0.116 ,
+            'project_id' => $project->id],
+            ['name' => 'المعيار الاقتصادي للمشروع',
+            'key' => 0.184 ,
+            'project_id' => $project->id],
+            ['name' => 'المعيار الفني للمشروع ',
+            'key' => 0.085 ,
+            'project_id' => $project->id],
+            ['name' => 'المعيار القانوني للمشروع ',
+            'key' => 0.217 ,
+            'project_id' => $project->id]
+            ]);
         toast('Your Project was Added successfully !', 'success');
         return redirect(route('projects.index'));
     }
@@ -40,7 +65,9 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $primaries = $project->primaries;
-        return view('projects.show', compact('project','primaries'));
+        // $primePercent = Secondary::where('primary_id',$secondary->primary_id)->pluck('percent')->sum();
+
+        return view('projects.show', compact('project', 'primaries'));
     }
 
     public function edit(Project $project)
@@ -63,7 +90,7 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
-    public function destroy( Project $project)
+    public function destroy(Project $project)
     {
         $project->delete();
         toast('Your project was Deleted !', 'warning');

@@ -34,5 +34,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('logs', 'LogController@index')->name('logs.index');
     Route::get('logs/delete', 'LogController@destroy')->name('logs.delete');
     Route::resource('projects', 'ProjectController');
+    Route::get('seconda/{primary}' ,'PrimaryController@seconda')->name('seconda');
     Route::resource('primaries', 'PrimaryController')->except(['edit','update','create']);;
-});
+});Route::resource('secondaries', 'SecondaryController');
