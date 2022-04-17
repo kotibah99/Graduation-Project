@@ -39,7 +39,7 @@
                                 @method('delete')
                                 <button type="submit" class="btn btn-sm btn-danger"> <i class=" fa fa-user-minus"></i></button>
                             </form>
-                            <a href="{{route('imperosnate',$user)}}" class="btn btn-sm btn-primary
+                            <a href="{{route('imper',$user)}}" class="btn btn-sm btn-primary
                             mx-3"> <i class="fa fa-user-ninja"></i> impersonate</a>
                             <a href=" {{route("users.show",$user)}} " class="btn btn-sm btn-success float-left"><i class="fa fa-eye"></i></a>
                         </td>

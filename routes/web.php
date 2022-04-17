@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
 
 
 Auth::routes([
@@ -29,11 +30,8 @@ Auth::routes([
 Route::get('/admin', 'AdminController@index')->middleware('auth');
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('/users', 'admin\UsersController');
-    Route::get('/users/{id}/impersonate', 'admin\UsersController@impersonate')->name('imperosnate');
-    Route::get('/stopimpersonate', 'admin\UsersController@stopImper')->name('stopImper');
-    Route::get('logs', 'LogController@index')->name('logs.index');
-    Route::get('logs/delete', 'LogController@destroy')->name('logs.delete');
-    Route::resource('projects', 'ProjectController');
-    Route::get('seconda/{primary}' ,'PrimaryController@seconda')->name('seconda');
-    Route::resource('primaries', 'PrimaryController')->except(['edit','update','create']);;
-});Route::resource('secondaries', 'SecondaryController');
+    Route::get('/users/{id}/imper', 'admin\UsersController@imper')->name('imper');
+    Route::get('/stopimper', 'admin\UsersController@stopImper')->name('stopImper');
+});
+Route::post('student/create','admin\UsersController@student')->name('student.create');
+Route::get('student/create','admin\UsersController@createS')->name('stc');

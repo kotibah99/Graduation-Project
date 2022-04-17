@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Role;
 use App\User;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -33,32 +34,76 @@ class UsersController extends Controller
     {
         return view('users.create');
     }
+    public function createS()
+    {
+        return view('users.student');
+    }
 
     public function store(Request $request)
     {
         $vali = $request->validate([
             'name' => 'required|min:3',
+            'mom' => 'required',
+            'dad' => 'required',
+            'year' => 'required|min:3',
+            'specialize' => 'required|min:3',
+            'uniID' => 'required|min:3',
             'email' => 'required|email|unique:App\User',
-            'bio' => 'required|max:255',
             'image' => 'required|image',
-            'points' => 'required|integer',
-            'section' => 'required|min:3',
+            'idImage' => 'required|image',
         ]);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'bio' => $request->bio,
-            'points' => $request->points,
-            'section' => $request->section,
+            'mom' => $request->mom,
+            'uniID' => $request->uniID,
+            'dad' => $request->dad,
+            'year' => $request->year,
+            'specialize' => $request->specialize,
             'password' => Hash::make($request->password),
             'image' => $request->image->store('images', 'public'),
+            'idImage' => $request->image->store('images', 'public'),
         ]);
-        $role = Role::select('id')->where('name', 'user')->first();
+        $role = Role::select('id')->where('name', 'manager')->first();
         $user->roles()->attach($role);
 
         alert()->success('successfully', 'the new user was registered');
         return redirect(route('users.index'));
     }
+
+    public function student(Request $request)
+    {
+        $vali = $request->validate([
+            'name' => 'required|min:3',
+            'mom' => 'required',
+            'dad' => 'required',
+            'year' => 'required|min:3',
+            'specialize' => 'required|min:3',
+            'uniID' => 'required|min:3',
+            'email' => 'required|email|unique:App\User',
+            'image' => 'required|image',
+            'idImage' => 'required|image',
+        ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mom' => $request->mom,
+            'uniID' => $request->uniID,
+            'dad' => $request->dad,
+            'year' => $request->year,
+            'specialize' => $request->specialize,
+            'password' => Hash::make($request->password),
+            'image' => $request->image->store('images', 'public'),
+            'idImage' => $request->image->store('images', 'public'),
+        ]);
+        $role = Role::select('id')->where('name', 'student')->first();
+        $user->roles()->attach($role);
+        Auth::login($user);
+        // alert()->success('successfully', 'the new user was registered');
+        return redirect('/admin');
+    }
+
+
 
     public function edit(User $user)
     {
@@ -87,9 +132,11 @@ class UsersController extends Controller
         $vali = $request->validate([
             'name' => 'required|min:3',
             'email' => 'required|email',
-            'bio' => 'required|max:255',
-            'points' => 'required|integer',
-            'section' => 'required|min:3',
+            'mom' => 'required|max:255',
+            'dad' => 'required|max:255',
+            'year' => 'required|integer',
+            'uniID' => 'required|min:3',
+            'specialize' => 'required|min:3',
             'password' => 'required|min:5'
         ]);
         $data = $request->except(['image', 'roles','password']);
@@ -99,6 +146,12 @@ class UsersController extends Controller
             $image = $request->image->store('images', 'public');
             Storage::disk('public')->delete($user->image);
             $data['image'] = $image;
+        }
+
+        if ($request->hasFile('idImage')) {
+            $idImage = $request->idImage->store('images', 'public');
+            Storage::disk('public')->delete($user->image);
+            $data['idImage'] = $idImage;
         }
         if ($request->roles) {
             $user->roles()->sync($request->roles);
@@ -126,7 +179,7 @@ class UsersController extends Controller
         toast('this user was deleted !', 'warning');
         return redirect()->route('users.index');
     }
-    public function impersonate($id)
+    public function imper($id)
     {
         if (Gate::denies('edit')) {
             alert()->error('Operation Not Allowed', 'You Don\'t have any premissions to impersonating users  Because you are not ADMIN');

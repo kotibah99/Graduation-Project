@@ -28,41 +28,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
                 </li>
-
                 <!-- Authentication Links -->
                 @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-                @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
                 @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                           <i class="fa fa-power-off"></i> {{ __('Logout') }}
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        <a href=" {{route('users.index')}} " class="dropdown-item"><i class="fa fa-users-cog"></i> User Managment</a>
-                        @if(Auth::user()->isImpersonating())
-                        <a href="{{route('stopImper')}}" class="dropdown-item"> <i class="fa fa-user-slash"></i> Stop Impersonate</a>
-                        @endif
-                    </div>
-                </li>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                                                                                 document.getElementById('logout-form').submit();">
+                                <i class="fa fa-power-off"></i> {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            <a href=" {{ route('users.index') }} " class="dropdown-item"><i class="fa fa-users-cog"></i>
+                                User Managment</a>
+                            @if (Auth::user()->isImpersonating())
+                                <a href="{{ route('stopImper') }}" class="dropdown-item"> <i
+                                        class="fa fa-user-slash"></i>
+                                    Stop Impersonate</a>
+                            @endif
+                        </div>
+                    </li>
                 @endguest
+
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -71,8 +77,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary  elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="/img/settings.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                {{-- <img src="/img/settings.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8"> --}}
+                
             </a>
 
             <!-- Sidebar -->
@@ -80,26 +87,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        @if (!(Auth::user()->image))
-                        <img src="/img/user.svg" class="img-circle elevation-2" alt="User Image">
+                        @if (!Auth::user()->image)
+                            <img src="/img/user.svg" class="img-circle elevation-2" alt="User Image">
                         @else
-                        <img src=" {{asset('storage/'.Auth::user()->image)}} " class="img-circle elevation-2" alt="User Image">
+                            <img src=" {{ asset('storage/' . Auth::user()->image) }} " class="img-circle elevation-2"
+                                alt="User Image">
                         @endif
                     </div>
                     <div class="info">
-                        <a href=" {{route('users.show',Auth::user())}} " class="d-block">{{ Auth::user()->name }}</a>
+                        <a href=" {{ route('users.show', Auth::user()) }} "
+                            class="d-block">{{ Auth::user()->name }}</a>
                     </div>
                 </div>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <a href=" {{route('projects.index')}} " class="nav-link active">
-                                <i class="fas fa-circle nav-icon"></i>
-                                <p>All Projects</p>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                      
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('valid') }}" class="nav-link ">
+                                <i class=" fa fa-cog nav-icon"></i>
+                                <p>Setting</p>
                             </a>
-                        </li>
+                        </li> --}}
+
+                       
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -110,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="content">
-               @yield('main')
+                @yield('main')
             </div>
             <!-- /.content -->
         </div>

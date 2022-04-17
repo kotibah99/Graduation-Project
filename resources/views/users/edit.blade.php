@@ -29,27 +29,49 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="bio" class="col-md-4 col-form-label text-md-right">Bio</label>
+                            <label for="uniId" class="col-md-4 col-form-label text-md-right">mom</label>
 
                             <div class="col-md-6">
-                                <textarea id="bio" type="text" class="form-control " name="bio">{{$user->bio}}</textarea>
+                                <input id="mom" type="text" class="form-control " name="mom" value="{{$user->mom}}">
                                 <div> {{$errors->first('bio')}} </div>
                             </div>
                         </div>
+
+
                         <div class="form-group row">
-                            <label for="section" class="col-md-4 col-form-label text-md-right">section</label>
+                            <label for="uniID" class="col-md-4 col-form-label text-md-right">uniID</label>
 
                             <div class="col-md-6">
-                                <input id="section" type="text" class="form-control " name="section" value="{{$user->section}}">
-                                <div> {{$errors->first('section')}} </div>
+                                <input id="uniID" type="text" class="form-control " name="uniID" value="{{$user->uniID}}">
+                                <div> {{$errors->first('bio')}} </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="spicialize" class="col-md-4 col-form-label text-md-right">specialize</label>
+
+                            <div class="col-md-6">
+                                <input id="specialize" type="text" class="form-control " name="specialize" value="{{$user->specialize}}">
+                                <div> {{$errors->first('bio')}} </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label for="dad" class="col-md-4 col-form-label text-md-right">dad</label>
+
+                            <div class="col-md-6">
+                                <input id="dad" type="text" class="form-control " name="dad" value="{{$user->dad}}">
+                                <div> {{$errors->first('dad')}} </div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="points" class="col-md-4 col-form-label text-md-right">points</label>
+                            <label for="year" class="col-md-4 col-form-label text-md-right">year</label>
 
                             <div class="col-md-6">
-                                <input id="points" type="number" class="form-control " name="points" value="{{$user->points}}">
-                                <div> {{$errors->first('points')}} </div>
+                                <input id="year" type="number" class="form-control " name="year" value="{{$user->year}}">
+                                <div> {{$errors->first('year')}} </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -62,6 +84,19 @@
                                         image.</small>
                                 </div>
                                 <div> {{$errors->first('image')}} </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="idImage" class="col-md-4 col-form-label text-md-right">User idImage</label>
+                            <div class="col-md-6">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" name="idImage" value="{{$user->idImage}}">
+                                    <label class="custom-file-label" for="idImage">Choose file...</label>
+                                    <small id="emailHelp" class="form-text ">Please make sure to have 1 MB
+                                        idImage.</small>
+                                </div>
+                                <div> {{$errors->first('idImage')}} </div>
                             </div>
                         </div>
                         <div class="form-group row">
