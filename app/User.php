@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->hasMany(Certm::class);
     }
 
+    public function unilifes()
+    {
+        return $this->hasMany(Unilife::class);
+    }
+
     public function hasAnyRoles($roles)
     {
         if ($this->roles()->whereIn('name', $roles)->first()) {

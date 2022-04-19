@@ -35,6 +35,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('exam1s', 'Exam1Controller');
     Route::resource('fund1s', 'Fund1Controller');
     Route::resource('certms', 'CertmController');
+    Route::resource('unilives', 'UnilifeController');
 });
 Route::post('student/create','admin\UsersController@student')->name('student.create');
 Route::get('student/create','admin\UsersController@createS')->name('stc');
