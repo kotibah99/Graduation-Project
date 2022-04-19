@@ -39,4 +39,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('certms', 'CertmController');
     Route::resource('unilives', 'UnilifeController');
     Route::resource('marks', 'MarkController');
+    Route::resource('grads', 'GradController');
 });
