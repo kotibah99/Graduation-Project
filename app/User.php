@@ -59,6 +59,11 @@ class User extends Authenticatable
         return $this->hasMany(Unilife::class);
     }
 
+    public function Marks()
+    {
+        return $this->hasMany(Mark::class);
+    }
+
     public function hasAnyRoles($roles)
     {
         if ($this->roles()->whereIn('name', $roles)->first()) {
