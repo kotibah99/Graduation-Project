@@ -33,6 +33,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/users/{id}/imper', 'admin\UsersController@imper')->name('imper');
     Route::get('/stopimper', 'admin\UsersController@stopImper')->name('stopImper');
     Route::resource('exam1s', 'Exam1Controller');
+    Route::resource('fund1s', 'Fund1Controller');
 });
 Route::post('student/create','admin\UsersController@student')->name('student.create');
 Route::get('student/create','admin\UsersController@createS')->name('stc');

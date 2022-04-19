@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasMany(Exam1::class);
     }
 
+    public function fund1s()
+    {
+        return $this->hasMany(Fund1::class);
+    }
+
     public function hasAnyRoles($roles)
     {
         if ($this->roles()->whereIn('name', $roles)->first()) {
