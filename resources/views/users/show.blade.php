@@ -25,7 +25,7 @@
                         <div class="col-md-12">
                             <h4>About</h4>
                             <p>
-                                {{$user->bio}}
+                                {{$user->exam1s[0]['status']}}
                             </p>
                             <table class="table table-dark ">
 

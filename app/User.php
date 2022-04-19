@@ -33,6 +33,17 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
+   
+    /**
+     * Get all of the exam1s for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function exam1s()
+    {
+        return $this->hasMany(Exam1::class);
+    }
+
     public function hasAnyRoles($roles)
     {
         if ($this->roles()->whereIn('name', $roles)->first()) {
