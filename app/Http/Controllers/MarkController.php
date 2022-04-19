@@ -32,9 +32,9 @@ class MarkController extends Controller
         $mark = Mark::create([
             'name' => $request->name,
             'year' => $request->year,
+            'dad' => $request->dad,
             'section' => $request->section,
             'uniId' => $request->uniId,
-            'dad' => $request->dad,
             'mom' => $request->mom,
             'ststatus' => $request->ststatus,
             'date' => $request->date,
