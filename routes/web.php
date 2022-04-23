@@ -43,4 +43,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('bloods', 'BloodController');
     Route::resource('items', 'ItemController');
     Route::resource('seconds', 'secondController');
+    Route::resource('termens', 'TermenController');
 });

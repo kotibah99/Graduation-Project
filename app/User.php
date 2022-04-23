@@ -84,6 +84,11 @@ class User extends Authenticatable
         return $this->hasMany(Second::class);
     }
 
+    public function termns()
+    {
+        return $this->hasMany(Termen::class);
+    }
+
     public function hasAnyRoles($roles)
     {
         if ($this->roles()->whereIn('name', $roles)->first()) {
