@@ -94,6 +94,12 @@ class User extends Authenticatable
         return $this->hasMany(Gradcert::class);
     }
 
+    public function manuals()
+    {
+        return $this->hasMany(Manual::class);
+    }
+
+
     public function hasAnyRoles($roles)
     {
         if ($this->roles()->whereIn('name', $roles)->first()) {
