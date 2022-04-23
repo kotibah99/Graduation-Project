@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-right alert alert-primary "> طلب ترقين القيد </div>
+                <div class="card-header text-right alert alert-primary ">   مصدقة تخرج </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('termens.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('gradcerts.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -33,27 +33,6 @@
 
                         <div class="form-group row">
                             
-                            <div class="col-md-8 ml-4 ml-4">
-                                <input id="nation" type="text" class="form-control " name="nation" value="{{ old('nation') }}"
-                                autocomplete="nation">
-                                <div> {{$errors->first('nation')}} </div>
-                            </div>
-                            <label for="nation" class="col-md-2 col-form-label text-md-right">الجنسية </label>
-                        </div>
-                        
-
-                        <div class="form-group row">
-                            
-                            <div class="col-md-8 ml-4 ml-4">
-                                <input id="location" type="text" class="form-control " name="location" value="{{ old('location') }}"
-                                autocomplete="location">
-                                <div> {{$errors->first('location')}} </div>
-                            </div>
-                            <label for="location" class="col-md-2 col-form-label text-md-right">مكان الولادة </label>
-                        </div>
-                 
-                        <div class="form-group row">
-                            
                             <div class="col-md-8 ml-4">
                                 <input id="uniId" type="text" class="form-control "
                                 name="uniId">
@@ -75,41 +54,11 @@
                         <div class="form-group row">
                             
                             <div class="col-md-8 ml-4">
-                                <input id="birth" type="text" class="form-control "
-                                name="birth">
-                                <div> {{$errors->first('birth')}} </div>
+                                <input id="mom" type="text" class="form-control "
+                                name="mom">
+                                <div> {{$errors->first('mom')}} </div>
                             </div>
-                            <label for="birth" class="col-md-2 col-form-label text-md-right"> تاريخ الولادة</label>
-                        </div>
-                        
-                        <div class="form-group row">
-                            
-                            <div class="col-md-8 ml-4">
-                                <input id="why" type="text" class="form-control "
-                                name="why">
-                                <div> {{$errors->first('why')}} </div>
-                            </div>
-                            <label for="why" class="col-md-2 col-form-label text-md-right"> اسباب الترقين</label>
-                        </div>
-
-                        <div class="form-group row">
-                            
-                            <div class="col-md-8 ml-4">
-                                <input id="pId" type="text" class="form-control "
-                                name="pId">
-                                <div> {{$errors->first('pId')}} </div>
-                            </div>
-                            <label for="pId" class="col-md-2 col-form-label text-md-right"> رقم البطاقة الشخصية </label>
-                        </div>
-
-                        <div class="form-group row">
-                            
-                            <div class="col-md-8 ml-4">
-                                <input id="idCred" type="text" class="form-control "
-                                name="idCred">
-                                <div> {{$errors->first('idCred')}} </div>
-                            </div>
-                            <label for="idCred" class="col-md-2 col-form-label text-md-right"> مصدر البطاقة الشخصية وتاريخ صدورها </label>
+                            <label for="mom" class="col-md-2 col-form-label text-md-right"> اسم الام</label>
                         </div>
 
 
@@ -120,9 +69,18 @@
                                 name="date">
                                 <div> {{$errors->first('date')}} </div>
                             </div>
-                            <label for="date" class="col-md-2 col-form-label text-md-right"> العامالدراسي</label>
+                            <label for="date" class="col-md-2 col-form-label text-md-right"> العام الدراسي</label>
                         </div>
                         
+                        <div class="form-group row">
+                            
+                            <div class="col-md-8 ml-4">
+                                <input id="gradeseason" type="text" class="form-control "
+                                name="gradeseason">
+                                <div> {{$errors->first('gradeseason')}} </div>
+                            </div>
+                            <label for="gradeseason" class="col-md-2 col-form-label text-md-right"> دورة التخرج</label>
+                        </div>
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-8 ml-4 offset-md-4">

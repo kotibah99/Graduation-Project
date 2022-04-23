@@ -89,6 +89,11 @@ class User extends Authenticatable
         return $this->hasMany(Termen::class);
     }
 
+    public function gradcerts()
+    {
+        return $this->hasMany(Gradcert::class);
+    }
+
     public function hasAnyRoles($roles)
     {
         if ($this->roles()->whereIn('name', $roles)->first()) {

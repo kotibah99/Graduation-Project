@@ -28,6 +28,8 @@ class TermenController extends Controller
             'year' => 'required',
             'date' => 'required',
             'why' => 'required',
+            'pId' => 'required',
+            'idCred' => 'required',
         ]);
 
         $termen = Termen::create([
@@ -40,6 +42,8 @@ class TermenController extends Controller
             'year' => $request->year,
             'date' => $request->date,
             'why' => $request->why,
+            'pId' => $request->pId,
+            'idCred' => $request->idCred,
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Termen was Added successfully !', 'success');
