@@ -47,4 +47,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('gradcerts', 'GradcertController');
     Route::resource('sregests', 'SregestController');
     Route::resource('manuals', 'ManualController');
+    Route::resource('rejects', 'RejectController');
 });

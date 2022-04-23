@@ -99,6 +99,11 @@ class User extends Authenticatable
         return $this->hasMany(Manual::class);
     }
 
+    public function rejects()
+    {
+        return $this->hasMany(Reject::class);
+    }
+
 
     public function hasAnyRoles($roles)
     {
