@@ -79,6 +79,10 @@ class User extends Authenticatable
         return $this->hasMany(Item::class);
     }
 
+    public function seconds()
+    {
+        return $this->hasMany(Second::class);
+    }
 
     public function hasAnyRoles($roles)
     {

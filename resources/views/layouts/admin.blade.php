@@ -160,6 +160,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <p>توصيف مقررات  </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('seconds.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>طلب وثيقة ثانوية  </p>
+                            </a>
+                        </li>
                        
                     </ul>
                 </nav>
