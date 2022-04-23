@@ -105,13 +105,61 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                       
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('valid') }}" class="nav-link ">
-                                <i class=" fa fa-cog nav-icon"></i>
-                                <p>Setting</p>
+                        <li class="nav-item">
+                            <a href="{{ route('marks.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>كشف علامات</p>
                             </a>
-                        </li> --}}
+                        </li>
 
+                        <li class="nav-item">
+                            <a href="{{ route('exam1s.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>التقدم لدورة التكميلي ماستر</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('unilives.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>الحياة الجامعية</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('certms.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>وثيقة دوام ماستر</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('bloods.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>طلب اعفاء من سحب الدم</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('fund1s.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>تقسيط رسوم التسجيل </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('grads.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>اشعار تخرج </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('items.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>توصيف مقررات  </p>
+                            </a>
+                        </li>
                        
                     </ul>
                 </nav>
