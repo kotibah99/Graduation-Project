@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRejectsTable extends Migration
+class CreateErejectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateRejectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rejects', function (Blueprint $table) {
+        Schema::create('erejects', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->string('name')->nullable();
-            $table->string('dad')->nullable();
+            $table->string('uniId')->nullable();
             $table->string('section')->nullable();
             $table->string('year')->nullable();
             $table->string('item')->nullable();
@@ -37,6 +37,6 @@ class CreateRejectsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rejects');
+        Schema::dropIfExists('erejects');
     }
 }

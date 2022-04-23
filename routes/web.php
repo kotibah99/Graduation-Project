@@ -48,4 +48,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('sregests', 'SregestController');
     Route::resource('manuals', 'ManualController');
     Route::resource('rejects', 'RejectController');
+    Route::resource('erejects', 'ErejectController');
 });

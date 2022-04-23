@@ -5,22 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use App\Reject;
+use App\Ereject;
 use Gate;
 
-class RejectController extends Controller
+class ErejectController extends Controller
 {
     public function index()
     {
-        $rejects = Reject::orderBy('id')->paginate(6);
-        return view('rejects.index', compact('rejects'));
+        $erejects = Ereject::orderBy('id')->paginate(6);
+        return view('erejects.index', compact('erejects'));
     }
 
     public function store(Request $request)
     {
         $validate = $request->validate([
             'name' => 'required|min:3',
-            'dad' => 'required',
+            'uniId' => 'required',
             'section' => 'required',
             'year' => 'required',
             'item' => 'required',
@@ -31,9 +31,9 @@ class RejectController extends Controller
             'mark' => 'required',
         ]);
 
-        $mark = Reject::create([
+        $mark = Ereject::create([
             'name' => $request->name,
-            'dad' => $request->dad,
+            'uniId' => $request->uniId,
             'section' => $request->section,
             'year' => $request->year,
             'item' => $request->item,
@@ -44,42 +44,42 @@ class RejectController extends Controller
             'mark' => $request->mark,
             'user_id'=> Auth::user()->id,
         ]);
-        toast('Your Reject was Added successfully !', 'success');
-        return redirect(route('rejects.index'));
+        toast('Your Ereject was Added successfully !', 'success');
+        return redirect(route('erejects.index'));
     }
 
     public function create()
     {
-        return view('rejects.create');
+        return view('erejects.create');
     }
 
-    public function show(Reject $reject)
+    public function show(Ereject $ereject)
     {
-        return view('rejects.show', compact('reject'));
+        return view('erejects.show', compact('ereject'));
     }
 
-    public function edit(Reject $reject)
+    public function edit(Ereject $ereject)
     {
-        return view('rejects.edit', compact('reject'));
+        return view('erejects.edit', compact('ereject'));
     }
 
 
-    public function update(Request $request, Reject $reject)
+    public function update(Request $request, Ereject $ereject)
     {
         $vali = $request->validate([
             'name' => 'required|min:3',
         ]);
 
         $data = $request->only(['name']);
-        $reject->update($data);
-        toast('Your reject was Updated successfully !', 'success');
-        return redirect(route('rejects.index'));
+        $ereject->update($data);
+        toast('Your ereject was Updated successfully !', 'success');
+        return redirect(route('erejects.index'));
     }
 
-    public function destroy( Reject $reject)
+    public function destroy( Ereject $ereject)
     {
-        $reject->delete();
-        toast('Your reject was Deleted !', 'warning');
-        return redirect(route('rejects.index'));
+        $ereject->delete();
+        toast('Your ereject was Deleted !', 'warning');
+        return redirect(route('erejects.index'));
     }
 }

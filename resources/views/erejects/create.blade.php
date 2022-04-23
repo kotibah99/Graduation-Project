@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-right alert alert-primary "> طلب اعتراض    </div>
+                <div class="card-header text-right alert alert-primary ">   طلب اعتراض عملي </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('rejects.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('erejects.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -44,11 +44,11 @@
                         <div class="form-group row">
                             
                             <div class="col-md-8 ml-4 ml-4">
-                                <input id="dad" type="text" class="form-control " name="dad" value="{{ old('dad') }}"
-                                autocomplete="dad">
-                                <div> {{$errors->first('dad')}} </div>
+                                <input id="uniId" type="text" class="form-control " name="uniId" value="{{ old('uniId') }}"
+                                autocomplete="uniId">
+                                <div> {{$errors->first('uniId')}} </div>
                             </div>
-                            <label for="dad" class="col-md-2 col-form-label text-md-right">اسم الاب  </label>
+                            <label for="uniId" class="col-md-2 col-form-label text-md-right">الرقم الجامعي   </label>
                         </div>
 
 
