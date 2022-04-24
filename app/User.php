@@ -78,6 +78,11 @@ class User extends Authenticatable
         return $this->hasMany(Grad::class);
     }
 
+    public function gradorders()
+    {
+        return $this->hasMany(Gradorder::class);
+    }
+
     public function bloods()
     {
         return $this->hasMany(Blood::class);

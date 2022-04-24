@@ -52,4 +52,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('attends', 'AttendController');
     Route::resource('lifens', 'LifenController');
     Route::resource('markns', 'MarknController');
+    Route::resource('gradorders', 'GradorderController');
 });
