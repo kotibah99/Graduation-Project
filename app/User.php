@@ -68,6 +68,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Mark::class);
     }
+    public function Markns()
+    {
+        return $this->hasMany(Markn::class);
+    }
 
     public function grads()
     {
