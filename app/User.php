@@ -59,6 +59,11 @@ class User extends Authenticatable
         return $this->hasMany(Unilife::class);
     }
 
+    public function lifens()
+    {
+        return $this->hasMany(Lifen::class);
+    }
+
     public function Marks()
     {
         return $this->hasMany(Mark::class);
