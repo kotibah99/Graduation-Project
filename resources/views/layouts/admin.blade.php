@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item">
                             <a href="{{ route('unilives.create') }}" class="nav-link ">
                                 <i class=" fa fa-address-book nav-icon"></i>
-                                <p>الحياة الجامعية</p>
+                                <p> حياة جامعية لطلاب الماجستير</p>
                             </a>
                         </li>
 
@@ -132,6 +132,42 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <p>وثيقة دوام ماستر</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('erejects.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>اعتراض عملي  </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('gradcerts.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p> مصدقة تخرج  </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('manuals.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>  طلب يدوي  </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('rejects.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>   طلب اعتراض  </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('sregests.create') }}" class="nav-link ">
+                                <i class=" fa fa-address-book nav-icon"></i>
+                                <p>  استرداد ايقاف تسجيل  </p>
+                            </a>
+                        </li>
+
 
                         <li class="nav-item">
                             <a href="{{ route('bloods.create') }}" class="nav-link ">

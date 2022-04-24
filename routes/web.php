@@ -49,4 +49,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('manuals', 'ManualController');
     Route::resource('rejects', 'RejectController');
     Route::resource('erejects', 'ErejectController');
+    Route::resource('attends', 'AttendController');
 });

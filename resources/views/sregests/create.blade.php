@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-right alert alert-primary ">   مصدقة تخرج </div>
+                <div class="card-header text-right alert alert-primary ">   استرداد ايقاف تسجيل  </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('sregests.store') }}" enctype="multipart/form-data">
