@@ -31,8 +31,8 @@ class BloodController extends Controller
             'nId' => $request->nId,
         ]);
         toast('Your Blood was Added successfully !', 'success');
-        return redirect(route('bloods.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

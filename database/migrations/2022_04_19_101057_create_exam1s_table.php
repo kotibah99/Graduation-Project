@@ -22,7 +22,7 @@ class CreateExam1sTable extends Migration
             $table->string('number')->nullable();
             $table->string('itemsnames')->nullable();
             $table->string('year')->nullable();
-            $table->string('status')->nullable()->default('pendding');
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

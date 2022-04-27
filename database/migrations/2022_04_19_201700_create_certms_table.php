@@ -19,6 +19,7 @@ class CreateCertmsTable extends Migration
             $table->string('name')->nullable();
             $table->string('section')->nullable();
             $table->string('spicial')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

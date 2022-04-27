@@ -45,8 +45,8 @@ class ErejectController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Ereject was Added successfully !', 'success');
-        return redirect(route('erejects.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

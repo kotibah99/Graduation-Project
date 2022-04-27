@@ -21,6 +21,7 @@ class CreateAttendsTable extends Migration
             $table->string('section')->nullable();
             $table->string('year')->nullable();
             $table->string('date')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

@@ -39,8 +39,8 @@ class hcertController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your hcert was Added successfully !', 'success');
-        return redirect(route('hcerts.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

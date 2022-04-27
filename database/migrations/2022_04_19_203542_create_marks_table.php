@@ -24,6 +24,7 @@ class CreateMarksTable extends Migration
             $table->string('mom')->nullable();
             $table->string('date')->nullable();
             $table->string('ststatus')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

@@ -35,8 +35,8 @@ class secondController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your second was Added successfully !', 'success');
-        return redirect(route('seconds.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

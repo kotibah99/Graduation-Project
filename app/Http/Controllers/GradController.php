@@ -33,8 +33,8 @@ class GradController extends Controller
             'season' => $request->season,
         ]);
         toast('Your Grad was Added successfully !', 'success');
-        return redirect(route('grads.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

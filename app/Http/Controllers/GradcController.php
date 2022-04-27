@@ -33,8 +33,8 @@ class GradcController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Gradc was Added successfully !', 'success');
-        return redirect(route('gradcs.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

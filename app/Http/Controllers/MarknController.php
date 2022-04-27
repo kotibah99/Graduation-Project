@@ -39,8 +39,8 @@ class MarknController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Markn was Added successfully !', 'success');
-        return redirect(route('markns.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

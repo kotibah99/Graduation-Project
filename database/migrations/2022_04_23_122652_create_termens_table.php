@@ -27,6 +27,7 @@ class CreateTermensTable extends Migration
             $table->string('why')->nullable();
             $table->string('pId')->nullable();
             $table->string('idCred')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

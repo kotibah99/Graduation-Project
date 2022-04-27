@@ -45,8 +45,8 @@ class RejectController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Reject was Added successfully !', 'success');
-        return redirect(route('rejects.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

@@ -35,8 +35,8 @@ class Fund1Controller extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Fund1 was Added successfully !', 'success');
-        return redirect(route('fund1s.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

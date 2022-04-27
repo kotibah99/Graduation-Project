@@ -21,6 +21,7 @@ class CreateFund1sTable extends Migration
             $table->string('section')->nullable();
             $table->string('uniId')->nullable();
             $table->string('type')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

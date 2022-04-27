@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSecondsTable extends Migration
+class CreateStopregsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,22 @@ class CreateSecondsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seconds', function (Blueprint $table) {
+        Schema::create('stopregs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->string('name')->nullable();
-            $table->string('section')->nullable();
             $table->string('dad')->nullable();
+            $table->string('col')->nullable();
+            $table->string('section')->nullable();
             $table->string('year')->nullable();
             $table->string('uniId')->nullable();
-            $table->string('st')->nullable()->default('pendding');
+            $table->string('date')->nullable();
+            $table->string('nation')->nullable();
+            $table->string('pId')->nullable();
+            $table->string('city')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('stopseason')->nullable();
+            $table->string('stopyear')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +40,6 @@ class CreateSecondsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seconds');
+        Schema::dropIfExists('stopregs');
     }
 }

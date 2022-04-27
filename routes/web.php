@@ -29,7 +29,7 @@ Auth::routes([
 
 Route::get('student/create','admin\UsersController@createS')->name('stc');
 Route::post('student/create','admin\UsersController@student')->name('student.create');
-Route::get('/admin', 'AdminController@index')->middleware('auth');
+Route::get('/admin', 'AdminController@index')->middleware('auth')->name('admin');
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('/users', 'admin\UsersController');
     Route::get('/users/{id}/imper', 'admin\UsersController@imper')->name('imper');
@@ -55,4 +55,4 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('gradorders', 'GradorderController');
     Route::resource('gradcs', 'GradcController');
     Route::resource('hcerts', 'hcertController');
-});
+});Route::resource('stopregs', 'StopregController');

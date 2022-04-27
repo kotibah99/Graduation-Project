@@ -39,8 +39,8 @@ class GradcertController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Gradcert was Added successfully !', 'success');
-        return redirect(route('gradcerts.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

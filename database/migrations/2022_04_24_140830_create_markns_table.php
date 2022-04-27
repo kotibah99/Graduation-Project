@@ -21,6 +21,7 @@ class CreateMarknsTable extends Migration
             $table->string('uniId')->nullable();
             $table->string('mom')->nullable();
             $table->string('date')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->string('firstreg')->nullable();
             $table->timestamps();
         });

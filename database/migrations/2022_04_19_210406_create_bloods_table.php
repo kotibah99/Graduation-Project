@@ -20,6 +20,7 @@ class CreateBloodsTable extends Migration
             $table->string('year')->nullable();
             $table->string('nId')->nullable();
             $table->string('bank')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

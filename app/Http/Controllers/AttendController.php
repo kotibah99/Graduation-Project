@@ -35,7 +35,7 @@ class AttendController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Attend was Added successfully !', 'success');
-        return redirect(route('attends.index'));
+        return redirect(route('admin'));
     }
 
     public function create()

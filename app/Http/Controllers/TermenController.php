@@ -47,8 +47,8 @@ class TermenController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Termen was Added successfully !', 'success');
-        return redirect(route('termens.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

@@ -47,8 +47,8 @@ class GradorderController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Gradorder was Added successfully !', 'success');
-        return redirect(route('gradorders.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

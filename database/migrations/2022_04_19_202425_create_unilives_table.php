@@ -21,6 +21,7 @@ class CreateUnilivesTable extends Migration
             $table->string('section')->nullable();
             $table->string('uniId')->nullable();
             $table->string('year')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

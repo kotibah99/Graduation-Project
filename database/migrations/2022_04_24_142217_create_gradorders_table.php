@@ -25,6 +25,7 @@ class CreateGradordersTable extends Migration
             $table->string('fullname')->nullable();
             $table->string('nation')->nullable();
             $table->string('city')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->string('phone')->nullable();
             $table->string('needs')->nullable();
             $table->timestamps();

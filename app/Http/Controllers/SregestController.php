@@ -43,8 +43,8 @@ class SregestController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Sregest was Added successfully !', 'success');
-        return redirect(route('sregests.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

@@ -20,6 +20,7 @@ class CreateGradsTable extends Migration
             $table->string('section')->nullable();
             $table->string('uniId')->nullable();
             $table->string('season')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

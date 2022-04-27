@@ -26,6 +26,7 @@ class CreateErejectsTable extends Migration
             $table->string('ninstract')->nullable();
             $table->string('einstract')->nullable();
             $table->string('mark')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

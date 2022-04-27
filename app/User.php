@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasMany(Exam1::class);
     }
 
+    public function attends()
+    {
+        return $this->hasMany(Attend::class);
+    }
+
     public function fund1s()
     {
         return $this->hasMany(Fund1::class);
@@ -54,7 +59,7 @@ class User extends Authenticatable
         return $this->hasMany(Certm::class);
     }
 
-    public function unilifes()
+    public function unilives()
     {
         return $this->hasMany(Unilife::class);
     }
@@ -80,7 +85,7 @@ class User extends Authenticatable
 
     public function hcerts()
     {
-        return $this->hasMany(Hcert::class);
+        return $this->hasMany(hcert::class);
     }
 
     public function gradcs()
@@ -105,12 +110,16 @@ class User extends Authenticatable
 
     public function seconds()
     {
-        return $this->hasMany(Second::class);
+        return $this->hasMany(second::class);
     }
 
-    public function termns()
+    public function termens()
     {
         return $this->hasMany(Termen::class);
+    }
+    public function sregests()
+    {
+        return $this->hasMany(Sregest::class);
     }
 
     public function gradcerts()
@@ -126,6 +135,11 @@ class User extends Authenticatable
     public function rejects()
     {
         return $this->hasMany(Reject::class);
+    }
+
+    public function erejects()
+    {
+        return $this->hasMany(Ereject::class);
     }
 
 

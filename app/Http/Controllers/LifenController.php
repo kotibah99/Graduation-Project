@@ -37,8 +37,8 @@ class LifenController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Lifen was Added successfully !', 'success');
-        return redirect(route('lifens.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

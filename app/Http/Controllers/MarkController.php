@@ -41,8 +41,8 @@ class MarkController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Mark was Added successfully !', 'success');
-        return redirect(route('marks.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

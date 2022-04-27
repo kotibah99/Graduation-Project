@@ -23,6 +23,7 @@ class CreateHcertsTable extends Migration
             $table->string('year')->nullable();
             $table->string('date')->nullable();
             $table->string('season')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

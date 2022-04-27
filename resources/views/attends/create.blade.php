@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-right alert alert-primary "> طلب اعتراض    </div>
+                <div class="card-header text-right alert alert-primary "> وثيقة دوام </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('attends.store') }}" enctype="multipart/form-data">

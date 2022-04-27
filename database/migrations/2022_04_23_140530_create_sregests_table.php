@@ -25,6 +25,7 @@ class CreateSregestsTable extends Migration
             $table->string('nation')->nullable();
             $table->string('pId')->nullable();
             $table->string('stopseason')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

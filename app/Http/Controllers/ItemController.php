@@ -35,8 +35,8 @@ class ItemController extends Controller
             'user_id'=> Auth::user()->id,
         ]);
         toast('Your Item was Added successfully !', 'success');
-        return redirect(route('items.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

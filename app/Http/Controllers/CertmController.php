@@ -29,8 +29,8 @@ class CertmController extends Controller
             'spicail' => $request->spicail,
         ]);
         toast('Your Certm was Added successfully !', 'success');
-        return redirect(route('certms.index'));
-    }
+        return redirect(route('admin'));
+        }
 
     public function create()
     {

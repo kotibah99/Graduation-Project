@@ -22,6 +22,7 @@ class CreateLifensTable extends Migration
             $table->string('uniId')->nullable();
             $table->string('year')->nullable();
             $table->string('firstreg')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }

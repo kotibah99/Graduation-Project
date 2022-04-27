@@ -21,6 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('dad')->nullable();
             $table->string('year')->nullable();
             $table->string('items')->nullable();
+            $table->string('st')->nullable()->default('pendding');
             $table->timestamps();
         });
     }
