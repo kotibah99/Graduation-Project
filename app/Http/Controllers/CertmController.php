@@ -27,6 +27,7 @@ class CertmController extends Controller
             'name' => $request->name,
             'section' => $request->section,
             'spicail' => $request->spicail,
+            'user_id'=> Auth::user()->id,
         ]);
         toast('Your Certm was Added successfully !', 'success');
         return redirect(route('admin'));

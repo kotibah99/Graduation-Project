@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             
                             <div class="col-md-8 ml-4 ml-4">
-                                <input id="name" type="text" class="form-control " name="name" value="{{ old('name') }}"
+                                <input id="name" type="text" class="form-control " name="name" value="{{Auth::user()->name}}"
                                 autocomplete="name">
                                 <div> {{$errors->first('name')}} </div>
                             </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Blood;
 use Gate;
 
@@ -12,6 +13,7 @@ class BloodController extends Controller
     public function index()
     {
         $bloods = Blood::orderBy('id')->paginate(6);
+        // dd($bloods->user());
         return view('bloods.index', compact('bloods'));
     }
 
@@ -29,6 +31,7 @@ class BloodController extends Controller
             'year' => $request->year,
             'bank' => $request->bank,
             'nId' => $request->nId,
+            'user_id'=> Auth::user()->id,
         ]);
         toast('Your Blood was Added successfully !', 'success');
         return redirect(route('admin'));
@@ -49,9 +52,10 @@ class BloodController extends Controller
         return view('bloods.edit', compact('blood'));
     }
 
-
+    
     public function update(Request $request, Blood $blood)
     {
+        dd($blood);
         $vali = $request->validate([
             'name' => 'required|min:3',
         ]);

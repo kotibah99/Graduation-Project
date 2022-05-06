@@ -20,6 +20,14 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // public function all(){
+    //     if (Gate::denies('edit')) {
+    //         alert()->error('premission Denied', 'You Don\'t have any premissions to access  Because you are not Admin');
+    //         return redirect('/admin');
+    //     }
+    //     return view('requests');
+    // }
+
     public function index()
     {
         if (Gate::denies('edit')) {

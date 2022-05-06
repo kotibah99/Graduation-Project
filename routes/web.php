@@ -33,6 +33,7 @@ Route::get('/admin', 'AdminController@index')->middleware('auth')->name('admin')
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('/users', 'admin\UsersController');
     Route::get('/users/{id}/imper', 'admin\UsersController@imper')->name('imper');
+    // Route::get('/all', 'admin\UsersController@all')->name('all');
     Route::get('/stopimper', 'admin\UsersController@stopImper')->name('stopImper');
     Route::resource('exam1s', 'Exam1Controller');
     Route::resource('fund1s', 'Fund1Controller');

@@ -31,6 +31,8 @@ class GradController extends Controller
             'section' => $request->section,
             'uniId' => $request->uniId,
             'season' => $request->season,
+            'user_id'=> Auth::user()->id,
+
         ]);
         toast('Your Grad was Added successfully !', 'success');
         return redirect(route('admin'));
