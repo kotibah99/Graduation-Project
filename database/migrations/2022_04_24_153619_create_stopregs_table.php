@@ -29,6 +29,8 @@ class CreateStopregsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('stopseason')->nullable();
             $table->string('stopyear')->nullable();
+            $table->string('st')->nullable()->default('pendding');
+
             $table->timestamps();
         });
     }

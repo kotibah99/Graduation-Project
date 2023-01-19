@@ -54,16 +54,11 @@ class GradcController extends Controller
 
     public function update(Request $request, Gradc $gradc)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $gradc->update($data);
+        // dd($gradc);
+        $gradc->update(['st'=>'done']);
         toast('Your gradc was Updated successfully !', 'success');
         return redirect(route('gradcs.index'));
     }
-
     public function destroy( Gradc $gradc)
     {
         $gradc->delete();

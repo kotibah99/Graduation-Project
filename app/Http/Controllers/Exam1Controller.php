@@ -59,22 +59,17 @@ class Exam1Controller extends Controller
 
     public function update(Request $request, Exam1 $exam1)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-            'section' => 'required',
-            'uniId' => 'required',
-            'number' => 'required',
-            'itemsnames' => 'required',
-            'year' => 'required',
-            'status' => 'required',
-        ]);
-
-        $data = $request->only(['name']);
-        $exam1->update($data);
+        // dd($exam1->st);
+        if ($exam1->st === 'pendding') {
+           
+            $exam1->update(['st'=>'done']);
+        }else {
+            $exam1->update(['st'=>'pendding']);
+        }
         toast('Your exam1 was Updated successfully !', 'success');
         return redirect(route('exam1s.index'));
     }
-
+    
     public function destroy( Exam1 $exam1)
     {
         $exam1->delete();

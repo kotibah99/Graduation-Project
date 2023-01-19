@@ -12,7 +12,7 @@
                     </li>
                 </ul>
                 <div class="tab-content py-4">
-                    <div class="tab-pane " id="profile">
+                    <div class="tab-pane active"  id="profile">
                         <h5 class="mb-3">{{ $user->name }} Profile
                             {{-- @can('edit') --}}
                             @if (Auth::user()->id === $user->id)
@@ -36,20 +36,28 @@
                                         </tr>
 
                                         <tr class="text-center">
-                                            <th scope="col">About {{ $user->name }} :</th>
-                                            <th scope="col">{{ $user->bio }}</th>
+                                            <th scope="col">Year :</th>
+                                            <th scope="col">{{ $user->year }}</th>
                                         </tr>
                                         <tr class="text-center">
                                             <th scope="col"> Email :</th>
                                             <th scope="col">{{ $user->email }}</th>
                                         </tr>
                                         <tr class="text-center">
-                                            <th scope="col">Points :</th>
-                                            <th scope="col">{{ $user->points }}XP</th>
+                                            <th scope="col">Section :</th>
+                                            <th scope="col">{{ $user->specialize }}</th>
                                         </tr>
                                         <tr class="text-center">
-                                            <th scope="col">Section :</th>
-                                            <th scope="col">{{ $user->section }}</th>
+                                            <th scope="col">University Id :</th>
+                                            <th scope="col">{{ $user->uniID }}</th>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <th scope="col">Father name : </th>
+                                            <th scope="col">{{ $user->dad }}</th>
+                                        </tr>
+                                        <tr class="text-center">
+                                            <th scope="col">mother name : </th>
+                                            <th scope="col">{{ $user->mom }}</th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -57,7 +65,7 @@
                         </div>
                         <!--/row-->
                     </div>
-                    <div class="tab-pane row active d-flex" id="edit">
+                    <div class="tab-pane row  d-flex" id="edit">
                         @foreach ($user->Attends as $attend)
                             <div class="card col-3 pt-1 m-2">
                                 <div class="card-title text-center ">

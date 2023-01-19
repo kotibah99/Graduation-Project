@@ -56,12 +56,8 @@ class Fund1Controller extends Controller
 
     public function update(Request $request, Fund1 $fund1)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $fund1->update($data);
+        // dd($fund1);
+        $fund1->update(['st'=>'done']);
         toast('Your fund1 was Updated successfully !', 'success');
         return redirect(route('fund1s.index'));
     }

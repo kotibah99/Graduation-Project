@@ -1,10 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="bg-image" style="
+background-image:url('img/1.jpg'); 
+                            background-position:center;
+                            background-repeat:no-repeat;
+                            background-size:cover;
+                            height:600px;">
+<div class="container" style="border: 1px solid gray;
+                            
+                            background-color:rgba(0,0,0,0.1);
+                            backdrop-filter:blur(2px);
+                            box-shadow:5px 5px 5px rgba(0,0,0,0.5),-5px 5px 5px rgba(0,0,0,0.5) ;
+                            border-top:none;
+                            border-right:none;">
+    <div class="row justify-content-center" >
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="height:300px;">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -69,5 +81,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

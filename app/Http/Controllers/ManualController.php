@@ -56,12 +56,8 @@ class ManualController extends Controller
 
     public function update(Request $request, Manual $manual)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $manual->update($data);
+        // dd($manual);
+        $manual->update(['st'=>'done']);
         toast('Your manual was Updated successfully !', 'success');
         return redirect(route('manuals.index'));
     }

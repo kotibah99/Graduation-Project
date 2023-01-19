@@ -68,16 +68,11 @@ class GradorderController extends Controller
 
     public function update(Request $request, Gradorder $gradorder)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $gradorder->update($data);
+        // dd($gradorder);
+        $gradorder->update(['st'=>'done']);
         toast('Your gradorder was Updated successfully !', 'success');
         return redirect(route('gradorders.index'));
     }
-
     public function destroy( Gradorder $gradorder)
     {
         $gradorder->delete();

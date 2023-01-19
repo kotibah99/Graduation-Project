@@ -72,7 +72,7 @@ class UsersController extends Controller
             'image' => $request->image->store('images', 'public'),
             'idImage' => $request->image->store('images', 'public'),
         ]);
-        $role = Role::select('id')->where('name', 'manager')->first();
+        $role = Role::select('id')->where('name', 'student')->first();
         $user->roles()->attach($role);
 
         alert()->success('successfully', 'the new user was registered');
@@ -172,6 +172,8 @@ class UsersController extends Controller
     {
         return view('users.show', compact('user'));
     }
+
+
 
     /**
      * Remove the specified resource from storage.

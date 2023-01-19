@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             
                             <div class="col-md-8 ml-4 ml-4">
-                                <input id="name" type="text" class="form-control " name="name" value="{{ old('name') }}"
+                                <input id="name" type="text" class="form-control " name="name" value="{{ Auth::user()->name }}"
                                 autocomplete="name">
                                 <div> {{$errors->first('name')}} </div>
                             </div>
@@ -24,7 +24,7 @@
                         <div class="form-group row">
                             
                             <div class="col-md-8 ml-4 ml-4">
-                                <input id="year" type="text" class="form-control " name="year" value="{{ old('year') }}"
+                                <input id="year" type="text" class="form-control " name="year" value="{{ Auth::user()->year }}"
                                 autocomplete="year">
                                 <div> {{$errors->first('year')}} </div>
                             </div>

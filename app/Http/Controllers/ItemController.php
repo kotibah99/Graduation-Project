@@ -56,12 +56,8 @@ class ItemController extends Controller
 
     public function update(Request $request, Item $item)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $item->update($data);
+        // dd($item);
+        $item->update(['st'=>'done']);
         toast('Your item was Updated successfully !', 'success');
         return redirect(route('items.index'));
     }

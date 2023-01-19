@@ -58,12 +58,8 @@ class LifenController extends Controller
 
     public function update(Request $request, Lifen $lifen)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $lifen->update($data);
+        // dd($lifen);
+        $lifen->update(['st'=>'done']);
         toast('Your lifen was Updated successfully !', 'success');
         return redirect(route('lifens.index'));
     }

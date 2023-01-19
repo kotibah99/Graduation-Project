@@ -60,12 +60,8 @@ class GradcertController extends Controller
 
     public function update(Request $request, Gradcert $gradcert)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $gradcert->update($data);
+        // dd($gradcert);
+        $gradcert->update(['st'=>'done']);
         toast('Your gradcert was Updated successfully !', 'success');
         return redirect(route('gradcerts.index'));
     }

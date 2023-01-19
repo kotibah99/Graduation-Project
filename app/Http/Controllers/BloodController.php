@@ -55,13 +55,8 @@ class BloodController extends Controller
     
     public function update(Request $request, Blood $blood)
     {
-        dd($blood);
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $blood->update($data);
+        // dd($blood);
+        $blood->update(['st'=>'done']);
         toast('Your blood was Updated successfully !', 'success');
         return redirect(route('bloods.index'));
     }

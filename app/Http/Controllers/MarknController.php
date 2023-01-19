@@ -60,12 +60,8 @@ class MarknController extends Controller
 
     public function update(Request $request, Markn $markn)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $markn->update($data);
+        // dd($markn);
+        $markn->update(['st'=>'done']);
         toast('Your markn was Updated successfully !', 'success');
         return redirect(route('markns.index'));
     }

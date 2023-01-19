@@ -66,12 +66,8 @@ class ErejectController extends Controller
 
     public function update(Request $request, Ereject $ereject)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $ereject->update($data);
+        // dd($ereject);
+        $ereject->update(['st'=>'done']);
         toast('Your ereject was Updated successfully !', 'success');
         return redirect(route('erejects.index'));
     }

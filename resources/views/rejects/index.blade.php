@@ -8,15 +8,30 @@
                     <div class="card-title text-center ">
                         طلب اعتراض
                     </div>
-                    <div class="bg-gray rounded-sm p-1 m-1">الاسم : {{$item->name}}</div>
-                    <div class="bg-gray rounded-sm p-1 m-1">البنك : {{$item->bank}}</div>
-                    <div class="bg-gray rounded-sm p-1 m-1">السنة:{{$item->year}}</div>
-                    <div class="bg-gray rounded-sm p-1 m-1">الرقم الوطني :{{$item->nId}}</div>
+                    <div class="bg-gray rounded-sm p-1 m-1">اسم المقرر : {{$item->item}}</div>
+                    <div class="bg-gray rounded-sm p-1 m-1">سنة المقرر : {{$item->ityear}}</div>
+                    <div class="bg-gray rounded-sm p-1 m-1">فصل المقرر : {{$item->itseason}}</div>
+                    <div class="bg-gray rounded-sm p-1 m-1">مدرس النظري: {{$item->ninstract}}</div>
+                    <div class="bg-gray rounded-sm p-1 m-1">مدرس العملي : {{$item->einstract}}</div>
+                    <div class="bg-gray rounded-sm p-1 m-1">العلامة المعلنة : {{$item->mark}}</div>
+ 
                     @if ($item->st == 'pendding')
                         <div class="bg-warning rounded-sm p-1 m-1">status  :{{$item->st}}</div>
+                        <form action="{{route('rejects.update',$item->id)}}" method="post">
+                            @csrf
+                            @method('patch')
+                        <button class="btn btn-sm btn-danger ml-4" >change status</button>
+                    </form>
+                    <a class="btn btn-sm btn-secondary m-4" href="{{route('users.show',$item->user_id)}}" >check the profile</a>    
                     @elseif ($item->st == 'done')
-                        <div class="bg-success rounded-sm p-1 m-1"> status :{{$item->st}}</div>
-                   @endif
+                    <div class="bg-success rounded-sm p-1 m-1"> status :{{$item->st}}</div>
+                    <form action="{{route('exam1s.update',$item->id)}}" method="post">
+                        @csrf
+                        @method('patch')
+                        <button class="btn btn-sm btn-danger ml-4" >change status</button>
+                    </form>
+                    <a class="btn btn-sm btn-secondary m-4" href="{{route('users.show',$item->user_id)}}" >check the profile</a>    
+                    @endif
                 </div>
             @endforeach
             {{-- </div> --}}

@@ -15,7 +15,7 @@
 
                                 <div class="col-md-8 ml-4 ml-4">
                                     <input id="name" type="text" class="form-control " name="name"
-                                        value="{{ old('name') }}" autocomplete="name">
+                                        value="{{ Auth::user()->name }}" autocomplete="name">
                                     <div> {{ $errors->first('name') }} </div>
                                 </div>
                                 <label for="name" class="col-md-2 col-form-label text-md-right">الاسم الثلاثي</label>
@@ -23,7 +23,7 @@
                             <div class="form-group row">
                             
                                 <div class="col-md-8 ml-4 ml-4">
-                                    <input id="section" type="text" class="form-control " name="section" value="{{ old('section') }}"
+                                    <input id="section" type="text" class="form-control " name="section" value="{{ Auth::user()->specialize }}"
                                     autocomplete="section">
                                     <div> {{$errors->first('section')}} </div>
                                 </div>
@@ -33,7 +33,7 @@
                             <div class="form-group row">
                             
                                 <div class="col-md-8 ml-4 ml-4">
-                                    <input id="uniId" type="text" class="form-control " name="uniId" value="{{ old('uniId') }}"
+                                    <input id="uniId" type="text" class="form-control " name="uniId" value="{{ Auth::user()->uniID }}"
                                     autocomplete="uniId">
                                     <div> {{$errors->first('uniId')}} </div>
                                 </div>

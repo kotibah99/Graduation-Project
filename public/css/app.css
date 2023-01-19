@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Tajwal);/*!
  *   AdminLTE v3.0.5
  *   Author: Colorlib
  *   Website: AdminLTE.io <http://adminlte.io>
@@ -48,7 +48,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'Tajawal', sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -60,7 +60,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Tajawal', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -8399,7 +8399,7 @@ button.bg-dark:focus {
 }
 
 .pt-4,
-.py-4 {
+{
   padding-top: 1.5rem !important;
 }
 
@@ -8408,8 +8408,7 @@ button.bg-dark:focus {
   padding-right: 1.5rem !important;
 }
 
-.pb-4,
-.py-4 {
+.pb-4, {
   padding-bottom: 1.5rem !important;
 }
 
@@ -31253,7 +31252,7 @@ a.text-muted:hover {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Tajwal", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -31264,7 +31263,7 @@ a.text-muted:hover {
 }
 
 html {
-  font-family: sans-serif;
+  font-family: 'tajwal';
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -31285,7 +31284,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Tajawal", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -37619,7 +37618,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Tajawal", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -37744,7 +37743,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Tajawal", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -39867,8 +39866,7 @@ button.bg-dark:focus {
   padding: 1.5rem !important;
 }
 
-.pt-4,
-.py-4 {
+.pt-4 {
   padding-top: 1.5rem !important;
 }
 
@@ -39878,7 +39876,7 @@ button.bg-dark:focus {
 }
 
 .pb-4,
-.py-4 {
+{
   padding-bottom: 1.5rem !important;
 }
 

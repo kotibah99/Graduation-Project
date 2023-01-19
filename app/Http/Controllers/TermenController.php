@@ -68,12 +68,8 @@ class TermenController extends Controller
 
     public function update(Request $request, Termen $termen)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $termen->update($data);
+        // dd($termen);
+        $termen->update(['st'=>'done']);
         toast('Your termen was Updated successfully !', 'success');
         return redirect(route('termens.index'));
     }

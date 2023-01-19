@@ -62,12 +62,8 @@ class MarkController extends Controller
 
     public function update(Request $request, Mark $mark)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $mark->update($data);
+        // dd($mark);
+        $mark->update(['st'=>'done']);
         toast('Your mark was Updated successfully !', 'success');
         return redirect(route('marks.index'));
     }

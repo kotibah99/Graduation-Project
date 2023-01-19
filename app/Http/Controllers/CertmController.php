@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Certm;
 use Gate;
 
@@ -51,12 +52,8 @@ class CertmController extends Controller
 
     public function update(Request $request, Certm $certm)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $certm->update($data);
+        // dd($certm);
+        $certm->update(['st'=>'done']);
         toast('Your certm was Updated successfully !', 'success');
         return redirect(route('certms.index'));
     }

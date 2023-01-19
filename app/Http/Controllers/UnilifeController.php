@@ -56,14 +56,10 @@ class UnilifeController extends Controller
 
     public function update(Request $request, Unilife $unilife)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $unilife->update($data);
+        // dd($unilife);
+        $unilife->update(['st'=>'done']);
         toast('Your unilife was Updated successfully !', 'success');
-        return redirect(route('unilives.index'));
+        return redirect(route('unilifes.index'));
     }
 
     public function destroy( Unilife $unilife)

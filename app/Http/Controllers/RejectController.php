@@ -66,12 +66,8 @@ class RejectController extends Controller
 
     public function update(Request $request, Reject $reject)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $reject->update($data);
+        // dd($reject);
+        $reject->update(['st'=>'done']);
         toast('Your reject was Updated successfully !', 'success');
         return redirect(route('rejects.index'));
     }

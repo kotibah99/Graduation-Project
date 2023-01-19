@@ -62,14 +62,10 @@ class SregestController extends Controller
     }
 
 
-    public function update(Request $request, Sregest $sregest)
+    public function update(Request $request, sregest $sregest)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $sregest->update($data);
+        // dd($sregest);
+        $sregest->update(['st'=>'done']);
         toast('Your sregest was Updated successfully !', 'success');
         return redirect(route('sregests.index'));
     }

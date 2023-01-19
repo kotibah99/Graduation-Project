@@ -25,7 +25,7 @@
                             
                             <div class="col-md-8 ml-4">
                                 <input id="section" type="section" class="form-control " name="section"
-                                value="{{ old('section') }}" autocomplete="section">
+                                value="{{ Auth::user()->specialize }}" autocomplete="section">
                                 <div> {{$errors->first('section')}} </div>
                             </div>
                             <label for="section" class="col-md-2 col-form-label text-md-right">القسم</label>

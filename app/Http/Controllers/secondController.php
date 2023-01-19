@@ -56,12 +56,8 @@ class secondController extends Controller
 
     public function update(Request $request, second $second)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $second->update($data);
+        // dd($second);
+        $second->update(['st'=>'done']);
         toast('Your second was Updated successfully !', 'success');
         return redirect(route('seconds.index'));
     }

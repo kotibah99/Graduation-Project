@@ -49,12 +49,8 @@ class StopregController extends Controller
 
     public function update(Request $request, Stopreg $stopreg)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $stopreg->update($data);
+        // dd($stopreg);
+        $stopreg->update(['st'=>'done']);
         toast('Your stopreg was Updated successfully !', 'success');
         return redirect(route('stopregs.index'));
     }

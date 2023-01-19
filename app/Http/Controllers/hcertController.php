@@ -60,16 +60,11 @@ class hcertController extends Controller
 
     public function update(Request $request, hcert $hcert)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $hcert->update($data);
+        // dd($hcert);
+        $hcert->update(['st'=>'done']);
         toast('Your hcert was Updated successfully !', 'success');
         return redirect(route('hcerts.index'));
     }
-
     public function destroy( hcert $hcert)
     {
         $hcert->delete();

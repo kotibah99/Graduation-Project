@@ -56,12 +56,8 @@ class GradController extends Controller
 
     public function update(Request $request, Grad $grad)
     {
-        $vali = $request->validate([
-            'name' => 'required|min:3',
-        ]);
-
-        $data = $request->only(['name']);
-        $grad->update($data);
+        // dd($grad);
+        $grad->update(['st'=>'done']);
         toast('Your grad was Updated successfully !', 'success');
         return redirect(route('grads.index'));
     }

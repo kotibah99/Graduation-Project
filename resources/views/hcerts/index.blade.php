@@ -9,9 +9,7 @@
                         طلب توصيف مقررات
                     </div>
                     <div class="bg-gray rounded-sm p-1 m-1">الاسم : {{$item->name}}</div>
-                    <div class="bg-gray rounded-sm p-1 m-1">البنك : {{$item->bank}}</div>
-                    <div class="bg-gray rounded-sm p-1 m-1">السنة:{{$item->year}}</div>
-                    <div class="bg-gray rounded-sm p-1 m-1">الرقم الوطني :{{$item->nId}}</div>
+ 
                     @if ($item->st == 'pendding')
                         <div class="bg-warning rounded-sm p-1 m-1">status  :{{$item->st}}</div>
                     @elseif ($item->st == 'done')
